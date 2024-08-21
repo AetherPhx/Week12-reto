@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>App de Cajero</title>
+		<link rel="stylesheet" href="styles/css/styles.css" />
+	</head>
+	<body>
+		<div class="app">
+			<!-- Start -->
+			<div>
+				<h1>Cajero Automático BCP</h1>
+				<span
+					>¡Bienvenido! Presione el botón para comenzar a utilizar el cajero
+					😄</span
+				>
+				<button>Iniciar</button>
+			</div>
+
+			<!-- Login -->
+			<div>
+				<!-- Auth -->
+				<div>
+					<header>
+						<h2>
+							Ingrese sus datos
+							<br />
+							para empezar su sesión
+						</h2>
+
+						<button>Cancelar</button>
+						<!-- TODO: Add logOut Icon -->
+					</header>
+
+					<form action="" id="login">
+						<input
+							type="password"
+							id="credential"
+							name="credential"
+							maxlength="8"
+							placeholder="Ingresa tu DNI"
+							required
+						/>
+						<input
+							type="password"
+							id="login-pin"
+							name="pin"
+							id="pin"
+							maxlength="4"
+							placeholder="Ingresa tu PIN"
+							required
+						/>
+						<button>Ingresar</button>
+					</form>
+				</div>
+
+				<!-- Error -->
+				<div>
+					<!-- TODO: Add Error Icon -->
+					<span>Las credenciales son incorrectas.</span>
+				</div>
+			</div>
+
+			<!-- Menu -->
+			<div>
+				<header>
+					<!-- Farewell -->
+					<div>
+						<h2>Bienvenido, NOMBRE</h2>
+						<span>¿Qué operación quieres hacer hoy?</span>
+					</div>
+
+					<!-- LogOut -->
+					<button>Salir</button>
+					<!-- TODO: Add logOut icon -->
+				</header>
+
+				<!-- Operations -->
+				<div>
+					<div>
+						<span>Consultar Saldo</span>
+						<hr />
+					</div>
+					<div>
+						<span>Ingresar Monto</span>
+						<hr />
+					</div>
+					<div>
+						<span>Retirar Monto</span>
+						<hr />
+					</div>
+				</div>
+			</div>
+
+			<!-- Check Balance -->
+			<div>
+				<header>
+					<!-- Instructions -->
+					<h2>Consulta tu Saldo</h2>
+
+					<!-- LogOut -->
+					<button>Salir</button>
+					<!-- TODO: Add logOut icon -->
+				</header>
+
+				<span>Tu saldo es de S/. 0</span>
+
+				<footer>
+					<button>Regresar</button>
+					<!-- TODO: Add Back Icon -->
+				</footer>
+			</div>
+
+			<!-- Enter Amount -->
+			<div>
+				<header>
+					<!-- Instructions -->
+					<div>
+						<h2>Deposita tu Dinero</h2>
+						<span>Ingresa el monto a depositar</span>
+					</div>
+
+					<!-- LogOut -->
+					<button>Salir</button>
+					<!-- TODO: Add logOut icon -->
+				</header>
+
+				<!-- Deposit Form -->
+				<form>
+					<span>S/ </span>
+					<!-- Prefix -->
+					<input
+						id="deposit-amount"
+						name="deposit-amount"
+						type="number"
+						placeholder="0"
+						maxlength="4"
+						required
+					/>
+
+					<button type="submit">Depositar</button>
+				</form>
+
+				<!-- Result -->
+				<div>
+					<!-- Error -->
+					<div>
+						<h3>Deposito Fallido</h3>
+						<span>Ingresa un monto valido</span>
+					</div>
+
+					<!-- Success -->
+					<div>
+						<h3>Deposito exitoso</h3>
+						<span>El monto ingresado fue de S/. 0</span>
+						<span>Tu nuevo saldo es de S/. 0</span>
+					</div>
+				</div>
+
+				<footer>
+					<button>Regresar</button>
+					<!-- TODO: Add Back Icon -->
+				</footer>
+			</div>
+
+			<!-- Withdraw Amount -->
+			<div>
+				<header>
+					<!-- Instructions -->
+					<div>
+						<h2>Retira tu Dinero</h2>
+						<span>Ingresa o selecciona el monto a retirar</span>
+					</div>
+
+					<!-- LogOut -->
+					<button>Salir</button>
+					<!-- TODO: Add logOut icon -->
+				</header>
+
+				<!-- Withdraw Options -->
+				<!-- Form -->
+				<div>
+					<h3>Ingresa el monto</h3>
+					<form>
+						<span>S/ </span>
+						<!-- Prefix -->
+						<input
+							id="withdraw-amount"
+							name="withdraw-amount"
+							type="number"
+							placeholder="0"
+							maxlength="4"
+							required
+						/>
+
+						<button type="submit">Retirar</button>
+					</form>
+				</div>
+
+				<!-- Cards -->
+				<div>
+					<h3>Selecciona el monto</h3>
+					<div>
+						<span>S/ 20</span>
+						<span>S/ 50</span>
+						<span>S/ 100</span>
+						<span>S/ 150</span>
+					</div>
+				</div>
+
+				<!-- Result -->
+				<div>
+					<!-- Error -->
+					<div>
+						<h3>Retiro Fallido</h3>
+						<span>Ingresa un monto valido</span>
+					</div>
+
+					<!-- Success -->
+					<div>
+						<h3>Retiro exitoso</h3>
+						<span>El monto retirado fue de S/. 0</span>
+						<span>Tu nuevo saldo es de S/. 0</span>
+					</div>
+				</div>
+
+				<footer>
+					<button>Regresar</button>
+					<!-- TODO: Add Back Icon -->
+				</footer>
+			</div>
+		</div>
+
+		<script src="script/script.js"></script>
+	</body>
+</html>
