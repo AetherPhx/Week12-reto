@@ -1,0 +1,62 @@
+@use "../../theme/" as theme;
+
+.menu {
+	display: grid;
+	place-items: center;
+	gap: 100px;
+
+	// Header
+	&__header {
+		width: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__greetings {
+		display: grid;
+		gap: 10px;
+	}
+	&__logOut {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+
+		&:active {
+			background-color: theme.$acc;
+		}
+	}
+
+	// Operations List
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	&__operation {
+		padding: 40px;
+		border: 2px solid theme.$white;
+		text-align: center;
+		&-text {
+			font-size: theme.$fs-lg;
+		}
+
+		&-hr {
+			background-color: theme.$acc;
+			width: 100%;
+			height: 2px;
+			margin-top: 5px;
+			color: theme.$acc;
+		}
+		&:active {
+			background-color: theme.$acc;
+			& hr {
+				background-color: theme.$white;
+				color: theme.$white;
+			}
+		}
+	}
+}

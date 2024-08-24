@@ -18,8 +18,17 @@ h3 {
 }
 
 p {
-	max-width: 75ch;
+	max-width: 50ch;
 	font-size: theme.$fs-md;
 	font-weight: theme.$fw-regular;
 	text-wrap: pretty;
+}
+
+button {
+	font-size: theme.$fs-md;
+	font-weight: theme.$fw-bold;
+}
+
+.hidden {
+	display: none;
 }

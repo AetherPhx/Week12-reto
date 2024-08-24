@@ -1,0 +1,52 @@
+@use "../../theme/" as theme;
+
+.balance {
+	display: grid;
+	place-items: center;
+	gap: 100px;
+
+	// Header
+	&__header {
+		width: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__guide {
+		display: grid;
+		gap: 10px;
+	}
+	&__logOut {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+
+		&:active {
+			background-color: theme.$acc;
+		}
+	}
+
+	// Balance
+	&__text {
+		font-size: theme.$fs-xl;
+		font-weight: theme.$fw-bold;
+	}
+
+	// Footer
+	&__back {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+
+		&:active {
+			background-color: theme.$acc;
+		}
+	}
+}

@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>App de Cajero</title>
 		<link rel="stylesheet" href="styles/css/styles.css" />
+		<script
+			src="https://kit.fontawesome.com/9363e6ce5f.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
 		<section class="atm-app">
@@ -14,16 +18,17 @@
 					<h1 class="start__title">Cajero Automático BCP</h1>
 
 					<p class="start__welcome">
-						¡Bienvenido! Presione el botón para comenzar a utilizar el cajero 😄
+						¡Bienvenido!
+						<br />
+						Presione el botón para comenzar a utilizar el cajero 😄
 					</p>
 
-					<button class="start__btn">Iniciar</button>
+					<button class="start__btn">Ingresar</button>
 				</div>
 			</section>
 
 			<!-- Auth -->
 			<section id="view-auth" class="atm-app__view">
-				<!-- Auth -->
 				<div class="auth">
 					<header class="auth__header">
 						<!-- Instructions -->
@@ -34,11 +39,12 @@
 
 						<!-- Exit -->
 						<button class="auth__exit">
-							<!-- TODO: Add Exit Icon -->
+							<i class="fa-solid fa-right-from-bracket"></i>
 							Salir
 						</button>
 					</header>
 
+					<!-- Auth Process -->
 					<form class="auth__form" action="" id="login">
 						<input
 							class="auth__input"
@@ -60,12 +66,12 @@
 						/>
 						<button class="auth__submit" type="submit">Ingresar</button>
 					</form>
-				</div>
 
-				<!-- Auth Error -->
-				<div class="auth-error">
-					<!-- TODO: Add Error Icon -->
-					<p class="auth-error__message">Las credenciales son incorrectas.</p>
+					<!-- Auth Error Message -->
+					<div class="auth__error">
+						<i class="fa-solid fa-circle-exclamation"></i>
+						<p class="auth__error-message">Las credenciales son incorrectas.</p>
+					</div>
 				</div>
 			</section>
 
@@ -83,7 +89,7 @@
 
 						<!-- LogOut -->
 						<button class="menu__logOut">
-							<!-- TODO: Add logOut Icon -->
+							<i class="fa-solid fa-right-from-bracket"></i>
 							Salir
 						</button>
 					</header>
@@ -92,17 +98,17 @@
 					<div class="menu__list">
 						<div class="menu__operation" id="operation-balance">
 							<span class="menu__operation-text">Consultar Saldo</span>
-							<hr class="menu__hr" />
+							<hr class="menu__operation-hr" />
 						</div>
 
 						<div class="menu__operation" id="operation-deposit">
 							<span class="menu__operation-text">Ingresar Monto</span>
-							<hr class="menu__hr" />
+							<hr class="menu__operation-hr" />
 						</div>
 
 						<div class="menu__operation" id="operation-withdraw">
 							<span class="menu__operation-text">Retirar Monto</span>
-							<hr class="menu__hr" />
+							<hr class="menu__operation-hr" />
 						</div>
 					</div>
 				</div>
@@ -122,7 +128,7 @@
 
 						<!-- LogOut -->
 						<button class="balance__logOut">
-							<!-- TODO: Add logOut icon -->
+							<i class="fa-solid fa-right-from-bracket"></i>
 							Salir
 						</button>
 					</header>
@@ -131,7 +137,7 @@
 
 					<footer class="balance__footer">
 						<button class="balance__back">
-							<!-- TODO: Add Back Icon -->
+							<i class="fa-solid fa-circle-left"></i>
 							Regresar
 						</button>
 					</footer>
@@ -152,23 +158,25 @@
 
 						<!-- LogOut -->
 						<button class="deposit__logOut">
-							<!-- TODO: Add logOut icon -->
+							<i class="fa-solid fa-right-from-bracket"></i>
 							Salir
 						</button>
 					</header>
 
 					<!-- Deposit Form -->
 					<form class="deposit-form" action="" id="deposit">
-						<span class="deposit-form__prefix">S/ </span>
-						<input
-							class="deposit-form__input"
-							id="deposit-amount"
-							name="deposit-amount"
-							type="number"
-							placeholder="0"
-							maxlength="4"
-							required
-						/>
+						<div class="deposit-form__field">
+							<span class="deposit-form__prefix">S/ </span>
+							<input
+								class="deposit-form__input"
+								id="deposit-amount"
+								name="deposit-amount"
+								type="number"
+								placeholder="0"
+								maxlength="4"
+								required
+							/>
+						</div>
 
 						<button class="deposit-form__submit" type="submit">
 							Depositar
@@ -199,7 +207,7 @@
 
 					<footer class="deposit__footer">
 						<button class="deposit__back">
-							<!-- TODO: Add Back Icon -->
+							<i class="fa-solid fa-circle-left"></i>
 							Regresar
 						</button>
 					</footer>
@@ -219,8 +227,10 @@
 						</div>
 
 						<!-- LogOut -->
-						<button class="withdraw__logOut">Salir</button>
-						<!-- TODO: Add logOut icon -->
+						<button class="withdraw__logOut">
+							<i class="fa-solid fa-right-from-bracket"></i>
+							Salir
+						</button>
 					</header>
 
 					<!-- Withdraw Options -->
@@ -228,17 +238,19 @@
 						<!-- Form -->
 						<form class="withdraw__form">
 							<h3 class="withdraw__form-title">Ingresa el monto</h3>
-							<span class="withdraw__form-prefix">S/ </span>
-							<!-- Prefix -->
-							<input
-								class="withdraw__form-input"
-								id="withdraw-amount"
-								name="withdraw-amount"
-								type="number"
-								placeholder="0"
-								maxlength="4"
-								required
-							/>
+							<div class="withdrawn__form-field">
+								<span class="withdraw__form-prefix">S/ </span>
+								<!-- Prefix -->
+								<input
+									class="withdraw__form-input"
+									id="withdraw-amount"
+									name="withdraw-amount"
+									type="number"
+									placeholder="0"
+									maxlength="4"
+									required
+								/>
+							</div>
 
 							<button class="withdraw__form-submit" type="submit">
 								Retirar
@@ -285,7 +297,7 @@
 
 					<footer class="withdraw__footer">
 						<button class="withdraw__back">
-							<!-- TODO: Add Back Icon -->
+							<i class="fa-solid fa-circle-left"></i>
 							Regresar
 						</button>
 					</footer>

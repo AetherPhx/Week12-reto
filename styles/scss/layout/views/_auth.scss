@@ -1,0 +1,67 @@
+@use "../../theme/" as theme;
+
+.auth {
+	padding-inline: 100px;
+	display: grid;
+	place-items: center;
+	gap: 40px;
+
+	// Header
+	&__header {
+		width: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__guide {
+		display: grid;
+		gap: 10px;
+	}
+	&__exit {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+
+		&:active {
+			background-color: theme.$acc;
+		}
+	}
+
+	// Auth Process
+	&__form {
+		display: grid;
+		gap: 20px;
+	}
+	&__input {
+		background-color: theme.$main;
+		max-width: 120px;
+		padding: 10px 15px;
+		border: 2px solid theme.$white;
+		border-radius: 10px;
+		color: theme.$white;
+	}
+	&__submit {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+	}
+
+	// Auth Error
+	&__error {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 15px;
+		align-items: center;
+		color: theme.$acc;
+	}
+	&__error--hidden {
+		display: none;
+	}
+}

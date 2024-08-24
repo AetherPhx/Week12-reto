@@ -1,0 +1,10 @@
+@use "../theme/" as theme;
+
+.atm-app {
+	min-height: 100vh;
+	max-width: 800px;
+	padding-block: 200px;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+}

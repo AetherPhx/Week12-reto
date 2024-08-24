@@ -166,7 +166,9 @@ const validateAuth = () => {
 	);
 
 	if (!selectedUser) {
-		document.querySelector(".auth-error").style.display = "block";
+		document
+			.querySelector(".auth__error")
+			.classList.remove("auth__error--hidden");
 		document.querySelector(".auth__form").reset();
 		return false;
 	} else {
@@ -206,18 +208,27 @@ const resetViewData = (view) => {
 			greetingsElement.textContent = `Bienvenido, ${user.name}!`;
 		case "Auth":
 			document.querySelector(".auth__form").reset();
-			document.querySelector(".auth-error").style.display = "none";
+			document
+				.querySelector(".auth__error")
+				.classList.add("auth__error--hidden");
 			break;
 		case "Deposit":
 			document.querySelector("#deposit-amount").value = "";
-			document.querySelector(".deposit-result__fail").style.display = "none";
-			document.querySelector(".deposit-result__success").style.display = "none";
+			document
+				.querySelector(".deposit-result__fail")
+				.classList.add("deposit-result__fail--hidden");
+			document
+				.querySelector(".deposit-result__success")
+				.classList.add("deposit-result__success--hidden");
 			break;
 		case "Withdraw":
 			document.querySelector("#withdraw-amount").value = "";
-			document.querySelector(".withdraw-result__error").style.display = "none";
-			document.querySelector(".withdraw-result__success").style.display =
-				"none";
+			document
+				.querySelector(".withdraw-result__error")
+				.classList.add("withdraw-result__error--hidden");
+			document
+				.querySelector(".withdraw-result__success")
+				.classList.add("withdraw-result__success--hidden");
 			break;
 		default:
 			break;
@@ -245,8 +256,8 @@ const listenBack = (e, name) => {
 const printView = () => {
 	viewsList.forEach((view) => {
 		view.state === false
-			? (view.element.style.display = "none")
-			: (view.element.style.display = "block");
+			? view.element.classList.add("hidden")
+			: view.element.classList.remove("hidden");
 	});
 };
 const printBalance = () => {
@@ -260,8 +271,8 @@ const printDepositResult = (view, amount) => {
 	const successDeposit = view.querySelector(".deposit-result__success");
 	if (!amount) {
 		console.error("No se pudo realizar el deposito.");
-		failDeposit.style.display = "block";
-		successDeposit.style.display = "none";
+		failDeposit.classList.remove("deposit-result__fail--hidden");
+		successDeposit.classList.add("deposit-result__success--hidden");
 	} else {
 		const resultElement = view.querySelector(".deposit-result__amount");
 		const newBalanceElement = view.querySelector(
@@ -271,8 +282,8 @@ const printDepositResult = (view, amount) => {
 		newBalanceElement.textContent = `Tu nuevo saldo es de S/.${user.balance.toFixed(
 			2
 		)}`;
-		failDeposit.style.display = "none";
-		successDeposit.style.display = "block";
+		failDeposit.classList.add("deposit-result__fail--hidden");
+		successDeposit.classList.remove("deposit-result__success--hidden");
 	}
 };
 const printWithdrawResult = (view, amount) => {
@@ -280,8 +291,8 @@ const printWithdrawResult = (view, amount) => {
 	const successWithdraw = view.querySelector(".withdraw-result__success");
 	if (!amount) {
 		console.error("No se pudo realizar el retiro.");
-		failWithdraw.style.display = "block";
-		successWithdraw.style.display = "none";
+		failWithdraw.classList.remove("withdraw-result__error--hidden");
+		successWithdraw.classList.add("withdraw-result__success--hidden");
 	} else {
 		const resultElement = view.querySelector(".withdraw-result__amount");
 		const newBalanceElement = view.querySelector(
@@ -291,8 +302,8 @@ const printWithdrawResult = (view, amount) => {
 		newBalanceElement.textContent = `Tu nuevo saldo es de S/.${user.balance.toFixed(
 			2
 		)}`;
-		failWithdraw.style.display = "none";
-		successWithdraw.style.display = "block";
+		failWithdraw.classList.add("withdraw-result__error--hidden");
+		successWithdraw.classList.remove("withdraw-result__success--hidden");
 	}
 };
 
@@ -301,23 +312,7 @@ const addToBalance = (amountToAdd) => {
 	user.balance += amountToAdd;
 	printBalance();
 };
-const showDepositResult = (status, amount) => {
-	if (!status) {
-		const failResultSection = view.querySelector(".deposit-result__fail");
-		failResultSection.style.display = "block";
-	} else {
-		const successResultSection = view.querySelector(".deposit-result__success");
-		const resultElement = view.querySelector(".deposit-result__amount");
-		const newBalanceElement = view.querySelector(
-			".deposit-result__new-balance"
-		);
-		resultElement.textContent = `El monto ingresado fue de S/.${amount}`;
-		newBalanceElement.textContent = `Tu nuevo saldo es de S/.${user.balance.toFixed(
-			2
-		)}`;
-		successResultSection.style.display = "block";
-	}
-};
+
 const substractFromBalance = (amountToSubstract) => {
 	user.balance -= amountToSubstract;
 	printBalance();

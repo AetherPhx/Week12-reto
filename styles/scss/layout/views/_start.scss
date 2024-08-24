@@ -1,0 +1,22 @@
+@use "../../theme/" as theme;
+
+.start {
+	display: grid;
+	place-items: center;
+	gap: 40px;
+
+	&__title {
+		margin-bottom: 10px;
+	}
+	&__welcome {
+		text-align: center;
+	}
+	&__btn {
+		background-color: theme.$acc;
+		padding: 10px 20px;
+		border: 3px solid theme.$white;
+		border-radius: 20px;
+		color: theme.$white;
+		cursor: pointer;
+	}
+}

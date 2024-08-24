@@ -1,0 +1,88 @@
+@use "../../theme/" as theme;
+
+.deposit {
+	display: grid;
+	place-items: center;
+	gap: 50px;
+
+	// Header
+	&__header {
+		width: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__guide {
+		display: grid;
+		gap: 10px;
+	}
+	&__logOut {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+
+		&:active {
+			background-color: theme.$acc;
+		}
+	}
+
+	// Form
+	&-form {
+		display: grid;
+		gap: 10px;
+		&__prefix {
+			color: theme.$acc;
+			font-size: theme.$fs-xl;
+			font-weight: theme.$fw-bold;
+		}
+		&__input {
+			background-color: theme.$main;
+			border: none;
+			max-width: 80px;
+			padding: 10px 5px;
+			font-weight: theme.$fw-bold;
+			color: theme.$white;
+		}
+		&__submit {
+			background-color: theme.$main;
+			padding: 8px 10px;
+			border: 2px solid theme.$white;
+			border-radius: 8px;
+			color: theme.$white;
+			cursor: pointer;
+
+			&:active {
+				background-color: theme.$acc;
+			}
+		}
+	}
+
+	// Result
+	&-result__fail,
+	&-result__success {
+		display: grid;
+		gap: 10px;
+		text-align: center;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	// Footer
+	&__back {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+		&:active {
+			background-color: theme.$acc;
+		}
+	}
+}

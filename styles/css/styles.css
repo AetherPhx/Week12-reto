@@ -1,1 +1,433 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");/*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-family: "Inter";
+  color: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: rgb(0, 42, 141);
+}
+
+h1,
+h2,
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 50ch;
+  font-size: 16px;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+
+button {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+.atm-app {
+  min-height: 100vh;
+  max-width: 800px;
+  padding-block: 200px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.start {
+  display: grid;
+  place-items: center;
+  gap: 40px;
+}
+.start__title {
+  margin-bottom: 10px;
+}
+.start__welcome {
+  text-align: center;
+}
+.start__btn {
+  background-color: hsl(28, 100%, 50%);
+  padding: 10px 20px;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 20px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
+.auth {
+  padding-inline: 100px;
+  display: grid;
+  place-items: center;
+  gap: 40px;
+}
+.auth__header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.auth__guide {
+  display: grid;
+  gap: 10px;
+}
+.auth__exit {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.auth__exit:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.auth__form {
+  display: grid;
+  gap: 20px;
+}
+.auth__input {
+  background-color: rgb(0, 42, 141);
+  max-width: 120px;
+  padding: 10px 15px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+}
+.auth__submit {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.auth__error {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+  align-items: center;
+  color: hsl(28, 100%, 50%);
+}
+.auth__error--hidden {
+  display: none;
+}
+
+.menu {
+  display: grid;
+  place-items: center;
+  gap: 100px;
+}
+.menu__header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu__greetings {
+  display: grid;
+  gap: 10px;
+}
+.menu__logOut {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.menu__logOut:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.menu__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.menu__operation {
+  padding: 40px;
+  border: 2px solid hsl(0, 0%, 100%);
+  text-align: center;
+}
+.menu__operation-text {
+  font-size: 20px;
+}
+.menu__operation-hr {
+  background-color: hsl(28, 100%, 50%);
+  width: 100%;
+  height: 2px;
+  margin-top: 5px;
+  color: hsl(28, 100%, 50%);
+}
+.menu__operation:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.menu__operation:active hr {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
+}
+
+.balance {
+  display: grid;
+  place-items: center;
+  gap: 100px;
+}
+.balance__header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.balance__guide {
+  display: grid;
+  gap: 10px;
+}
+.balance__logOut {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.balance__logOut:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.balance__text {
+  font-size: 24px;
+  font-weight: 700;
+}
+.balance__back {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.balance__back:active {
+  background-color: hsl(28, 100%, 50%);
+}
+
+.deposit {
+  display: grid;
+  place-items: center;
+  gap: 50px;
+}
+.deposit__header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.deposit__guide {
+  display: grid;
+  gap: 10px;
+}
+.deposit__logOut {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.deposit__logOut:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.deposit-form {
+  display: grid;
+  gap: 10px;
+}
+.deposit-form__prefix {
+  color: hsl(28, 100%, 50%);
+  font-size: 24px;
+  font-weight: 700;
+}
+.deposit-form__input {
+  background-color: rgb(0, 42, 141);
+  border: none;
+  max-width: 80px;
+  padding: 10px 5px;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+}
+.deposit-form__submit {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.deposit-form__submit:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.deposit-result__fail, .deposit-result__success {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+.deposit-result__fail--hidden, .deposit-result__success--hidden {
+  display: none;
+}
+.deposit__back {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.deposit__back:active {
+  background-color: hsl(28, 100%, 50%);
+}
+
+.withdraw {
+  display: grid;
+  place-items: center;
+  gap: 50px;
+}
+.withdraw__header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.withdraw__guide {
+  display: grid;
+  gap: 10px;
+}
+.withdraw__logOut {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.withdraw__logOut:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.withdraw__options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+}
+.withdraw__form {
+  padding: 0 30px;
+  display: grid;
+  place-items: center;
+  gap: 20px;
+}
+.withdraw__form-prefix {
+  color: hsl(28, 100%, 50%);
+  font-size: 24px;
+  font-weight: 700;
+}
+.withdraw__form-input {
+  background-color: rgb(0, 42, 141);
+  border: none;
+  max-width: 80px;
+  padding: 10px 5px;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+}
+.withdraw__form-submit {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.withdraw__form-submit:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.withdraw__deck {
+  display: grid;
+  gap: 20px;
+  text-align: center;
+}
+.withdraw__deck-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.withdraw__deck-item {
+  width: 100px;
+  background-color: rgb(0, 42, 141);
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+.withdraw__deck-item:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.withdraw-result__error, .withdraw-result__success {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+.withdraw-result__error--hidden, .withdraw-result__success--hidden {
+  display: none;
+}
+.withdraw__back {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.withdraw__back:active {
+  background-color: hsl(28, 100%, 50%);
+}/*# sourceMappingURL=styles.css.map */
