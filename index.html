@@ -7,230 +7,291 @@
 		<link rel="stylesheet" href="styles/css/styles.css" />
 	</head>
 	<body>
-		<div class="app">
+		<section class="atm-app">
 			<!-- Start -->
-			<div>
-				<h1>Cajero Automático BCP</h1>
-				<span
-					>¡Bienvenido! Presione el botón para comenzar a utilizar el cajero
-					😄</span
-				>
-				<button>Iniciar</button>
-			</div>
+			<section id="view-start" class="atm-app__view">
+				<div class="start">
+					<h1 class="start__title">Cajero Automático BCP</h1>
 
-			<!-- Login -->
-			<div>
+					<p class="start__welcome">
+						¡Bienvenido! Presione el botón para comenzar a utilizar el cajero 😄
+					</p>
+
+					<button class="start__btn">Iniciar</button>
+				</div>
+			</section>
+
+			<!-- Auth -->
+			<section id="view-auth" class="atm-app__view">
 				<!-- Auth -->
-				<div>
-					<header>
-						<h2>
-							Ingrese sus datos
-							<br />
-							para empezar su sesión
-						</h2>
+				<div class="auth">
+					<header class="auth__header">
+						<!-- Instructions -->
+						<div class="auth__guide">
+							<h2 class="auth__title">Inicie sesión</h2>
+							<span class="auth__subtitle"> Ingrese sus credenciales </span>
+						</div>
 
-						<button>Cancelar</button>
-						<!-- TODO: Add logOut Icon -->
+						<!-- Exit -->
+						<button class="auth__exit">
+							<!-- TODO: Add Exit Icon -->
+							Salir
+						</button>
 					</header>
 
-					<form action="" id="login">
+					<form class="auth__form" action="" id="login">
 						<input
+							class="auth__input"
 							type="password"
-							id="credential"
-							name="credential"
+							id="auth-dni"
+							name="auth-dni"
 							maxlength="8"
 							placeholder="Ingresa tu DNI"
 							required
 						/>
 						<input
+							class="auth__input"
 							type="password"
-							id="login-pin"
-							name="pin"
-							id="pin"
+							id="auth-pin"
+							name="auth-pin"
 							maxlength="4"
 							placeholder="Ingresa tu PIN"
 							required
 						/>
-						<button>Ingresar</button>
+						<button class="auth__submit" type="submit">Ingresar</button>
 					</form>
 				</div>
 
-				<!-- Error -->
-				<div>
+				<!-- Auth Error -->
+				<div class="auth-error">
 					<!-- TODO: Add Error Icon -->
-					<span>Las credenciales son incorrectas.</span>
+					<p class="auth-error__message">Las credenciales son incorrectas.</p>
 				</div>
-			</div>
+			</section>
 
 			<!-- Menu -->
-			<div>
-				<header>
-					<!-- Farewell -->
-					<div>
-						<h2>Bienvenido, NOMBRE</h2>
-						<span>¿Qué operación quieres hacer hoy?</span>
-					</div>
+			<section id="view-menu" class="atm-app__view">
+				<div class="menu">
+					<header class="menu__header">
+						<!-- Greetings -->
+						<div class="menu__greetings">
+							<h2 class="menu__welcome">Bienvenido, NOMBRE</h2>
+							<span class="menu__ask-operation">
+								¿Qué operación quieres hacer hoy?
+							</span>
+						</div>
 
-					<!-- LogOut -->
-					<button>Salir</button>
-					<!-- TODO: Add logOut icon -->
-				</header>
+						<!-- LogOut -->
+						<button class="menu__logOut">
+							<!-- TODO: Add logOut Icon -->
+							Salir
+						</button>
+					</header>
 
-				<!-- Operations -->
-				<div>
-					<div>
-						<span>Consultar Saldo</span>
-						<hr />
-					</div>
-					<div>
-						<span>Ingresar Monto</span>
-						<hr />
-					</div>
-					<div>
-						<span>Retirar Monto</span>
-						<hr />
+					<!-- List -->
+					<div class="menu__list">
+						<div class="menu__operation" id="operation-balance">
+							<span class="menu__operation-text">Consultar Saldo</span>
+							<hr class="menu__hr" />
+						</div>
+
+						<div class="menu__operation" id="operation-deposit">
+							<span class="menu__operation-text">Ingresar Monto</span>
+							<hr class="menu__hr" />
+						</div>
+
+						<div class="menu__operation" id="operation-withdraw">
+							<span class="menu__operation-text">Retirar Monto</span>
+							<hr class="menu__hr" />
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			<!-- Check Balance -->
-			<div>
-				<header>
-					<!-- Instructions -->
-					<h2>Consulta tu Saldo</h2>
+			<section id="view-balance" class="atm-app__view">
+				<div class="balance">
+					<header class="balance__header">
+						<!-- Instructions -->
+						<div class="balance__guide">
+							<h2 class="balance__guide-title">Consulta tu Saldo</h2>
+							<span class="balance__guide-subtitle"
+								>Revisa tu saldo disponible</span
+							>
+						</div>
 
-					<!-- LogOut -->
-					<button>Salir</button>
-					<!-- TODO: Add logOut icon -->
-				</header>
+						<!-- LogOut -->
+						<button class="balance__logOut">
+							<!-- TODO: Add logOut icon -->
+							Salir
+						</button>
+					</header>
 
-				<span>Tu saldo es de S/. 0</span>
+					<p class="balance__text">Tu saldo es de S/. 0</p>
 
-				<footer>
-					<button>Regresar</button>
-					<!-- TODO: Add Back Icon -->
-				</footer>
-			</div>
-
-			<!-- Enter Amount -->
-			<div>
-				<header>
-					<!-- Instructions -->
-					<div>
-						<h2>Deposita tu Dinero</h2>
-						<span>Ingresa el monto a depositar</span>
-					</div>
-
-					<!-- LogOut -->
-					<button>Salir</button>
-					<!-- TODO: Add logOut icon -->
-				</header>
-
-				<!-- Deposit Form -->
-				<form>
-					<span>S/ </span>
-					<!-- Prefix -->
-					<input
-						id="deposit-amount"
-						name="deposit-amount"
-						type="number"
-						placeholder="0"
-						maxlength="4"
-						required
-					/>
-
-					<button type="submit">Depositar</button>
-				</form>
-
-				<!-- Result -->
-				<div>
-					<!-- Error -->
-					<div>
-						<h3>Deposito Fallido</h3>
-						<span>Ingresa un monto valido</span>
-					</div>
-
-					<!-- Success -->
-					<div>
-						<h3>Deposito exitoso</h3>
-						<span>El monto ingresado fue de S/. 0</span>
-						<span>Tu nuevo saldo es de S/. 0</span>
-					</div>
+					<footer class="balance__footer">
+						<button class="balance__back">
+							<!-- TODO: Add Back Icon -->
+							Regresar
+						</button>
+					</footer>
 				</div>
+			</section>
 
-				<footer>
-					<button>Regresar</button>
-					<!-- TODO: Add Back Icon -->
-				</footer>
-			</div>
+			<!-- Deposit Amount -->
+			<section id="view-deposit" class="atm-app__view">
+				<div class="deposit">
+					<header class="deposit__header">
+						<!-- Instructions -->
+						<div class="deposit__guide">
+							<h2 class="deposit__title">Deposita tu Dinero</h2>
+							<span class="deposit__subtitle"
+								>Ingresa el monto a depositar</span
+							>
+						</div>
 
-			<!-- Withdraw Amount -->
-			<div>
-				<header>
-					<!-- Instructions -->
-					<div>
-						<h2>Retira tu Dinero</h2>
-						<span>Ingresa o selecciona el monto a retirar</span>
-					</div>
+						<!-- LogOut -->
+						<button class="deposit__logOut">
+							<!-- TODO: Add logOut icon -->
+							Salir
+						</button>
+					</header>
 
-					<!-- LogOut -->
-					<button>Salir</button>
-					<!-- TODO: Add logOut icon -->
-				</header>
-
-				<!-- Withdraw Options -->
-				<!-- Form -->
-				<div>
-					<h3>Ingresa el monto</h3>
-					<form>
-						<span>S/ </span>
-						<!-- Prefix -->
+					<!-- Deposit Form -->
+					<form class="deposit-form" action="" id="deposit">
+						<span class="deposit-form__prefix">S/ </span>
 						<input
-							id="withdraw-amount"
-							name="withdraw-amount"
+							class="deposit-form__input"
+							id="deposit-amount"
+							name="deposit-amount"
 							type="number"
 							placeholder="0"
 							maxlength="4"
 							required
 						/>
 
-						<button type="submit">Retirar</button>
+						<button class="deposit-form__submit" type="submit">
+							Depositar
+						</button>
 					</form>
-				</div>
 
-				<!-- Cards -->
-				<div>
-					<h3>Selecciona el monto</h3>
-					<div>
-						<span>S/ 20</span>
-						<span>S/ 50</span>
-						<span>S/ 100</span>
-						<span>S/ 150</span>
+					<!-- Result -->
+					<div class="deposit-result">
+						<!-- Fail -->
+						<div class="deposit-result__fail">
+							<h3 class="deposit-result__title">Deposito Fallido</h3>
+							<p class="deposit-result__fail-mssg">Ingresa un monto valido</p>
+						</div>
+
+						<!-- Success -->
+						<div class="deposit-result__success">
+							<h3 class="deposit-result__title">Deposito exitoso</h3>
+							<div class="deposit-result-details">
+								<p class="deposit-result__amount">
+									El monto ingresado fue de S/. 0
+								</p>
+								<p class="deposit-result__new-balance">
+									Tu nuevo saldo es de S/. 0
+								</p>
+							</div>
+						</div>
 					</div>
-				</div>
 
-				<!-- Result -->
-				<div>
-					<!-- Error -->
-					<div>
-						<h3>Retiro Fallido</h3>
-						<span>Ingresa un monto valido</span>
+					<footer class="deposit__footer">
+						<button class="deposit__back">
+							<!-- TODO: Add Back Icon -->
+							Regresar
+						</button>
+					</footer>
+				</div>
+			</section>
+
+			<!-- Withdraw Amount -->
+			<section id="view-withdraw" class="atm-app__view">
+				<div class="withdraw">
+					<header class="withdraw__header">
+						<!-- Instructions -->
+						<div class="withdraw__guide">
+							<h2 class="withdraw__title">Retira tu Dinero</h2>
+							<span class="withdraw__subtitle"
+								>Ingresa o selecciona el monto a retirar</span
+							>
+						</div>
+
+						<!-- LogOut -->
+						<button class="withdraw__logOut">Salir</button>
+						<!-- TODO: Add logOut icon -->
+					</header>
+
+					<!-- Withdraw Options -->
+					<div class="withdraw__options">
+						<!-- Form -->
+						<form class="withdraw__form">
+							<h3 class="withdraw__form-title">Ingresa el monto</h3>
+							<span class="withdraw__form-prefix">S/ </span>
+							<!-- Prefix -->
+							<input
+								class="withdraw__form-input"
+								id="withdraw-amount"
+								name="withdraw-amount"
+								type="number"
+								placeholder="0"
+								maxlength="4"
+								required
+							/>
+
+							<button class="withdraw__form-submit" type="submit">
+								Retirar
+							</button>
+						</form>
+
+						<!-- Cards -->
+						<div class="withdraw__deck">
+							<h3 class="withdraw__deck-title">Selecciona el monto</h3>
+							<div class="withdraw__deck-list">
+								<span id="withdraw-20" class="withdraw__deck-item">S/ 20</span>
+								<span id="withdraw-50" class="withdraw__deck-item">S/ 50</span>
+								<span id="withdraw-100" class="withdraw__deck-item"
+									>S/ 100</span
+								>
+								<span id="withdraw-150" class="withdraw__deck-item"
+									>S/ 150</span
+								>
+							</div>
+						</div>
 					</div>
 
-					<!-- Success -->
-					<div>
-						<h3>Retiro exitoso</h3>
-						<span>El monto retirado fue de S/. 0</span>
-						<span>Tu nuevo saldo es de S/. 0</span>
-					</div>
-				</div>
+					<!-- Result -->
+					<div class="withdraw-result">
+						<!-- Error -->
+						<div class="withdraw-result__error">
+							<h3 class="withdraw-result__title">Retiro Fallido</h3>
+							<span class="withdraw-result__mssg">Ingresa un monto valido</span>
+						</div>
 
-				<footer>
-					<button>Regresar</button>
-					<!-- TODO: Add Back Icon -->
-				</footer>
-			</div>
-		</div>
+						<!-- Success -->
+						<div class="withdraw-result__success">
+							<h3 class="withdraw-result__title">Retiro exitoso</h3>
+							<div class="withdraw-result__details">
+								<p class="withdraw-result__amount">
+									El monto retirado fue de S/. 0
+								</p>
+								<p class="withdraw-result__new-balance">
+									Tu nuevo saldo es de S/. 0
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<footer class="withdraw__footer">
+						<button class="withdraw__back">
+							<!-- TODO: Add Back Icon -->
+							Regresar
+						</button>
+					</footer>
+				</div>
+			</section>
+		</section>
 
 		<script src="script/script.js"></script>
 	</body>

@@ -1,0 +1,25 @@
+@use "../theme/index" as theme;
+
+html {
+	font-family: theme.$fm;
+	color: theme.$white;
+}
+
+body {
+	background-color: theme.$main;
+}
+
+h1,
+h2,
+h3 {
+	font-size: theme.$fs-xl;
+	font-weight: theme.$fw-bold;
+	text-wrap: balance;
+}
+
+p {
+	max-width: 75ch;
+	font-size: theme.$fs-md;
+	font-weight: theme.$fw-regular;
+	text-wrap: pretty;
+}
