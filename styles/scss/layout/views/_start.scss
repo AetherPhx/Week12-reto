@@ -1,8 +1,12 @@
 @use "../../theme/" as theme;
 
 .start {
-	display: grid;
-	place-items: center;
+	height: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 	gap: 40px;
 
 	&__title {

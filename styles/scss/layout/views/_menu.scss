@@ -1,9 +1,11 @@
 @use "../../theme/" as theme;
 
 .menu {
-	display: grid;
-	place-items: center;
-	gap: 100px;
+	height: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 60px;
 
 	// Header
 	&__header {
@@ -31,32 +33,106 @@
 	}
 
 	// Operations List
-	&__list {
+	&__operations {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 2fr 1fr;
 		gap: 20px;
+
+		&-main {
+			display: grid;
+			grid-template-areas:
+				"balance deposit"
+				"balance withdraw";
+			gap: 10px;
+
+			.menu__operation-text {
+				font-size: theme.$fs-xl;
+				font-weight: theme.$fw-medium;
+			}
+		}
+		&-add {
+			display: flex;
+			flex-flow: row wrap;
+			align-content: start;
+			gap: 10px;
+
+			> h3 {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+
+			> .menu__operation {
+				max-width: 120px;
+				padding: 10px 20px;
+				border-color: theme.$white;
+				display: flex;
+				flex-flow: column nowrap;
+				gap: 10px;
+
+				& > i {
+					font-size: 20px;
+				}
+			}
+		}
 	}
+
 	&__operation {
-		padding: 40px;
-		border: 2px solid theme.$white;
-		text-align: center;
+		padding: 25px;
+		border: 2px solid transparent;
+		border-radius: 12px;
+
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: start;
+		gap: 10px;
+
 		&-text {
 			font-size: theme.$fs-lg;
 		}
-
 		&-hr {
 			background-color: theme.$acc;
-			width: 100%;
-			height: 2px;
+			width: 30px;
+			height: 4px;
 			margin-top: 5px;
 			color: theme.$acc;
 		}
-		&:active {
-			background-color: theme.$acc;
-			& hr {
-				background-color: theme.$white;
-				color: theme.$white;
-			}
+	}
+
+	#operation-balance {
+		grid-area: balance;
+		background-color: theme.$white;
+		color: theme.$main;
+
+		& > i {
+			font-size: 30px;
+		}
+
+		& > .menu__operation-hr {
+			background-color: theme.$main;
+			color: theme.$main;
+		}
+	}
+
+	#operation-deposit {
+		grid-area: deposit;
+		background-color: theme.$acc;
+		color: theme.$white;
+
+		& > .menu__operation-hr {
+			background-color: theme.$white;
+			color: theme.$white;
+		}
+	}
+
+	#operation-withdraw {
+		grid-area: withdraw;
+		background-color: theme.$acc;
+		color: theme.$white;
+
+		& > .menu__operation-hr {
+			background-color: theme.$white;
+			color: theme.$white;
 		}
 	}
 }

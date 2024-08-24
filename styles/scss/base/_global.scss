@@ -29,6 +29,21 @@ button {
 	font-weight: theme.$fw-bold;
 }
 
+input {
+	&[type="number"] {
+		appearance: textfield;
+		-moz-appearance: textfield;
+	}
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+	}
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
 .hidden {
 	display: none;
 }

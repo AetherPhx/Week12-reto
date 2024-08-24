@@ -1,10 +1,11 @@
 @use "../../theme/" as theme;
 
 .auth {
-	padding-inline: 100px;
-	display: grid;
-	place-items: center;
-	gap: 40px;
+	height: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 100px;
 
 	// Header
 	&__header {
@@ -34,6 +35,7 @@
 	// Auth Process
 	&__form {
 		display: grid;
+		place-items: center;
 		gap: 20px;
 	}
 	&__input {
@@ -55,10 +57,13 @@
 
 	// Auth Error
 	&__error {
+		margin-top: 20px;
+
 		display: flex;
 		flex-flow: row nowrap;
-		gap: 15px;
+		justify-content: center;
 		align-items: center;
+		gap: 15px;
 		color: theme.$acc;
 	}
 	&__error--hidden {

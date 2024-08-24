@@ -13,8 +13,8 @@
 	<body>
 		<section class="atm-app">
 			<!-- Start -->
-			<section id="view-start" class="atm-app__view">
-				<div class="start">
+			<div id="view-start" class="atm-app__view">
+				<section class="start">
 					<h1 class="start__title">Cajero Automático BCP</h1>
 
 					<p class="start__welcome">
@@ -24,12 +24,12 @@
 					</p>
 
 					<button class="start__btn">Ingresar</button>
-				</div>
-			</section>
+				</section>
+			</div>
 
 			<!-- Auth -->
-			<section id="view-auth" class="atm-app__view">
-				<div class="auth">
+			<div id="view-auth" class="atm-app__view">
+				<section class="auth">
 					<header class="auth__header">
 						<!-- Instructions -->
 						<div class="auth__guide">
@@ -44,40 +44,44 @@
 						</button>
 					</header>
 
-					<!-- Auth Process -->
-					<form class="auth__form" action="" id="login">
-						<input
-							class="auth__input"
-							type="password"
-							id="auth-dni"
-							name="auth-dni"
-							maxlength="8"
-							placeholder="Ingresa tu DNI"
-							required
-						/>
-						<input
-							class="auth__input"
-							type="password"
-							id="auth-pin"
-							name="auth-pin"
-							maxlength="4"
-							placeholder="Ingresa tu PIN"
-							required
-						/>
-						<button class="auth__submit" type="submit">Ingresar</button>
-					</form>
+					<div class="auth__content">
+						<!-- Auth Process -->
+						<form class="auth__form" action="" id="login">
+							<input
+								class="auth__input"
+								type="password"
+								id="auth-dni"
+								name="auth-dni"
+								maxlength="8"
+								placeholder="Ingresa tu DNI"
+								required
+							/>
+							<input
+								class="auth__input"
+								type="password"
+								id="auth-pin"
+								name="auth-pin"
+								maxlength="4"
+								placeholder="Ingresa tu PIN"
+								required
+							/>
+							<button class="auth__submit" type="submit">Ingresar</button>
+						</form>
 
-					<!-- Auth Error Message -->
-					<div class="auth__error">
-						<i class="fa-solid fa-circle-exclamation"></i>
-						<p class="auth__error-message">Las credenciales son incorrectas.</p>
+						<!-- Auth Error Message -->
+						<div class="auth__error">
+							<i class="fa-solid fa-circle-exclamation"></i>
+							<p class="auth__error-message">
+								Las credenciales son incorrectas.
+							</p>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 
 			<!-- Menu -->
-			<section id="view-menu" class="atm-app__view">
-				<div class="menu">
+			<div id="view-menu" class="atm-app__view">
+				<section class="menu">
 					<header class="menu__header">
 						<!-- Greetings -->
 						<div class="menu__greetings">
@@ -95,28 +99,55 @@
 					</header>
 
 					<!-- List -->
-					<div class="menu__list">
-						<div class="menu__operation" id="operation-balance">
-							<span class="menu__operation-text">Consultar Saldo</span>
-							<hr class="menu__operation-hr" />
-						</div>
+					<section class="menu__operations">
+						<section class="menu__operations-main">
+							<div class="menu__operation" id="operation-balance">
+								<i class="fa-solid fa-money-check"></i>
+								<span class="menu__operation-text"
+									>Consultar
+									<br />
+									Saldo</span
+								>
+								<hr class="menu__operation-hr" />
+							</div>
 
-						<div class="menu__operation" id="operation-deposit">
-							<span class="menu__operation-text">Ingresar Monto</span>
-							<hr class="menu__operation-hr" />
-						</div>
+							<div class="menu__operation" id="operation-deposit">
+								<span class="menu__operation-text"
+									>Ingresar
+									<br />
+									Monto</span
+								>
+								<hr class="menu__operation-hr" />
+							</div>
 
-						<div class="menu__operation" id="operation-withdraw">
-							<span class="menu__operation-text">Retirar Monto</span>
-							<hr class="menu__operation-hr" />
-						</div>
-					</div>
-				</div>
-			</section>
+							<div class="menu__operation" id="operation-withdraw">
+								<span class="menu__operation-text"
+									>Retirar
+									<br />
+									Monto</span
+								>
+								<hr class="menu__operation-hr" />
+							</div>
+						</section>
+
+						<section class="menu__operations-add">
+							<h3>Otras Operaciones</h3>
+							<div class="menu__operation" id="operation-transfer">
+								<i class="fa-solid fa-money-bill-transfer"></i>
+								<span class="menu__operation-text">Transferir efectivo</span>
+							</div>
+							<div class="menu__operation" id="operation-changePin">
+								<i class="fa-solid fa-lock"></i>
+								<span class="menu__operation-text">Cambiar PIN</span>
+							</div>
+						</section>
+					</section>
+				</section>
+			</div>
 
 			<!-- Check Balance -->
-			<section id="view-balance" class="atm-app__view">
-				<div class="balance">
+			<div id="view-balance" class="atm-app__view">
+				<section class="balance">
 					<header class="balance__header">
 						<!-- Instructions -->
 						<div class="balance__guide">
@@ -141,12 +172,12 @@
 							Regresar
 						</button>
 					</footer>
-				</div>
-			</section>
+				</section>
+			</div>
 
 			<!-- Deposit Amount -->
-			<section id="view-deposit" class="atm-app__view">
-				<div class="deposit">
+			<div id="view-deposit" class="atm-app__view">
+				<section class="deposit">
 					<header class="deposit__header">
 						<!-- Instructions -->
 						<div class="deposit__guide">
@@ -173,7 +204,8 @@
 								name="deposit-amount"
 								type="number"
 								placeholder="0"
-								maxlength="4"
+								min="0"
+								max="9999"
 								required
 							/>
 						</div>
@@ -211,12 +243,12 @@
 							Regresar
 						</button>
 					</footer>
-				</div>
-			</section>
+				</section>
+			</div>
 
 			<!-- Withdraw Amount -->
-			<section id="view-withdraw" class="atm-app__view">
-				<div class="withdraw">
+			<div id="view-withdraw" class="atm-app__view">
+				<section class="withdraw">
 					<header class="withdraw__header">
 						<!-- Instructions -->
 						<div class="withdraw__guide">
@@ -247,7 +279,8 @@
 									name="withdraw-amount"
 									type="number"
 									placeholder="0"
-									maxlength="4"
+									min="0"
+									max="2000"
 									required
 								/>
 							</div>
@@ -301,8 +334,8 @@
 							Regresar
 						</button>
 					</footer>
-				</div>
-			</section>
+				</section>
+			</div>
 		</section>
 
 		<script src="script/script.js"></script>

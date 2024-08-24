@@ -51,9 +51,11 @@
 		}
 		&-input {
 			background-color: theme.$main;
-			border: none;
 			max-width: 80px;
 			padding: 10px 5px;
+			border: 2px solid theme.$white;
+			border-radius: 8px;
+
 			font-weight: theme.$fw-bold;
 			color: theme.$white;
 		}
