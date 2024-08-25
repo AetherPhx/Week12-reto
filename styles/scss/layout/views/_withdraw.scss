@@ -1,9 +1,13 @@
 @use "../../theme/" as theme;
 
 .withdraw {
-	display: grid;
-	place-items: center;
+	height: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
 	gap: 50px;
+
+	position: relative;
 
 	// Header
 	&__header {
@@ -30,20 +34,36 @@
 		}
 	}
 
+	// Withdraw ;
+	&__content {
+		display: grid;
+		gap: 40px;
+	}
+
 	// Withdraw Options
 	&__options {
 		display: grid;
-		// grid-template-columns: 1fr 2fr;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 100px;
 	}
 
 	// Form
 	&__form {
-		padding: 0 30px;
+		// padding: 0 30px;
+		margin: 0 auto;
 		display: grid;
-		place-items: center;
 		gap: 20px;
+
+		&-field {
+			background-color: theme.$main;
+			padding: 5px 10px;
+			border: 2px solid theme.$white;
+			border-radius: 8px;
+
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+		}
 		&-prefix {
 			color: theme.$acc;
 			font-size: theme.$fs-xl;
@@ -51,10 +71,9 @@
 		}
 		&-input {
 			background-color: theme.$main;
-			max-width: 80px;
+			width: 100%;
 			padding: 10px 5px;
-			border: 2px solid theme.$white;
-			border-radius: 8px;
+			border: none;
 
 			font-weight: theme.$fw-bold;
 			color: theme.$white;
@@ -75,10 +94,9 @@
 
 	// Cards
 	&__deck {
+		margin: 0 auto;
 		display: grid;
-		// place-items: center;
 		gap: 20px;
-		text-align: center;
 
 		&-list {
 			display: grid;
@@ -107,9 +125,10 @@
 	// Result
 	&-result__error,
 	&-result__success {
-		display: grid;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
 		gap: 10px;
-		text-align: center;
 
 		&--hidden {
 			display: none;
@@ -117,6 +136,10 @@
 	}
 
 	// Footer
+	&__footer {
+		position: absolute;
+		bottom: 0;
+	}
 	&__back {
 		background-color: theme.$main;
 		padding: 8px 10px;

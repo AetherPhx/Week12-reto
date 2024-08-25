@@ -6,8 +6,10 @@ const usersList = [
 	{ dni: "98005362", pin: "9102", name: "Sabi", balance: 60.0 },
 ];
 const user = { dni: "", pin: "", name: "", balance: 0.0 };
+let operationName = null;
 
-// Funciones
+//* Funciones
+
 // Load Resources
 const loadViews = () => {
 	const views = document.getElementsByClassName("atm-app__view");
@@ -39,15 +41,12 @@ const loadListeners = () => {
 				break;
 
 			case `Auth`:
-				const authForm = document.querySelector(".auth__form");
 				view.element.addEventListener("click", (e) => {
 					listenLogOut(e, view.name);
 				});
 				view.element.addEventListener("submit", (e) => {
 					e.preventDefault();
-					validateAuth()
-						? changeView("Menu")
-						: console.error("Credenciales incorrectas");
+					validateDNI() ? changeView("Menu") : null;
 				});
 				break;
 
@@ -55,13 +54,31 @@ const loadListeners = () => {
 				view.element.addEventListener("click", (e) => {
 					listenLogOut(e, view.name);
 
-					e.target.id === "operation-balance"
-						? changeView("Balance")
-						: e.target.id === "operation-deposit"
-						? changeView("Deposit")
-						: e.target.id === "operation-withdraw"
-						? changeView("Withdraw")
-						: null;
+					switch (e.target.id) {
+						case "operation-balance":
+							prepareOperation("Balance");
+							changeView("Confirm");
+							break;
+						case "operation-deposit":
+							prepareOperation("Deposit");
+							changeView("Confirm");
+							break;
+						case "operation-withdraw":
+							prepareOperation("Withdraw");
+							changeView("Confirm");
+							break;
+					}
+				});
+				break;
+
+			case `Confirm`:
+				view.element.addEventListener("click", (e) => {
+					listenLogOut(e, view.name);
+					listenBack(e, view.name);
+				});
+				view.element.addEventListener("submit", (e) => {
+					e.preventDefault();
+					confirmOperation();
 				});
 				break;
 
@@ -147,7 +164,7 @@ const loadListeners = () => {
 				break;
 
 			default: // Para vistas sin Listeners
-				console.error(
+				console.info(
 					`La vista "${view.name}" no tiene configurado un listener.`
 				);
 				break;
@@ -156,14 +173,10 @@ const loadListeners = () => {
 };
 
 // Validations
-const validateAuth = () => {
-	const auth = {
-		dni: document.querySelector("#auth-dni").value,
-		pin: document.querySelector("#auth-pin").value,
-	};
-	const selectedUser = usersList.find(
-		(user) => user.dni === auth.dni && user.pin === auth.pin
-	);
+const validateDNI = () => {
+	const dni = document.querySelector("#auth-dni").value;
+
+	const selectedUser = usersList.find((user) => user.dni === dni);
 
 	if (!selectedUser) {
 		document
@@ -173,14 +186,14 @@ const validateAuth = () => {
 		return false;
 	} else {
 		Object.assign(user, selectedUser);
-		console.log(`¡El usuario es válido!
-		DNI: ${user.dni}
-		PIN: ${user.pin}
-		Nombre: ${user.name}
-		Saldo: ${user.balance}
-		`);
 		return true;
 	}
+};
+const validatePIN = () => {
+	const pin = document.querySelector("#pin-confirm").value;
+
+	if (pin !== user.pin) return false;
+	else return true;
 };
 const validateAdd = (amount) => amount > 0;
 const validateSubstract = (amount) => amount > 0 && amount <= user.balance;
@@ -211,6 +224,12 @@ const resetViewData = (view) => {
 			document
 				.querySelector(".auth__error")
 				.classList.add("auth__error--hidden");
+			break;
+		case "Confirm":
+			document.querySelector(".confirm__form").reset();
+			document
+				.querySelector(".confirm__error")
+				.classList.add("confirm__error--hidden");
 			break;
 		case "Deposit":
 			document.querySelector("#deposit-amount").value = "";
@@ -259,6 +278,14 @@ const printView = () => {
 			? view.element.classList.add("hidden")
 			: view.element.classList.remove("hidden");
 	});
+};
+const prepareOperation = (operation) => (operationName = operation);
+const confirmOperation = () => {
+	validatePIN()
+		? changeView(operationName)
+		: document
+				.querySelector(".confirm__error")
+				.classList.remove("confirm__error--hidden");
 };
 const printBalance = () => {
 	const balanceTextElement = document.querySelector(".balance__text");
@@ -312,7 +339,6 @@ const addToBalance = (amountToAdd) => {
 	user.balance += amountToAdd;
 	printBalance();
 };
-
 const substractFromBalance = (amountToSubstract) => {
 	user.balance -= amountToSubstract;
 	printBalance();

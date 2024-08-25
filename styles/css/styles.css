@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  background-color: rgb(0, 42, 141);
+  background-color: #202124;
 }
 
 h1,
@@ -85,6 +85,7 @@ body {
 }
 
 .atm-app {
+  background-color: rgb(0, 42, 141);
   height: 540px;
   width: 840px;
   padding: 20px;
@@ -120,8 +121,8 @@ body {
 
 .auth {
   height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   gap: 100px;
 }
 .auth__header {
@@ -294,10 +295,89 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
-.balance {
+.confirm {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 100px;
+  position: relative;
+}
+.confirm__header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.confirm__guide {
+  display: grid;
+  gap: 10px;
+}
+.confirm__logOut {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.confirm__logOut:active {
+  background-color: hsl(28, 100%, 50%);
+}
+.confirm__form {
   display: grid;
   place-items: center;
+  gap: 20px;
+}
+.confirm__input {
+  background-color: rgb(0, 42, 141);
+  padding: 10px 15px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+}
+.confirm__submit {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.confirm__error {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: hsl(28, 100%, 50%);
+}
+.confirm__error--hidden {
+  display: none;
+}
+.confirm__footer {
+  position: absolute;
+  bottom: 0;
+}
+.confirm__back {
+  background-color: rgb(0, 42, 141);
+  padding: 8px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+.confirm__back:active {
+  background-color: hsl(28, 100%, 50%);
+}
+
+.balance {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
   gap: 100px;
+  position: relative;
 }
 .balance__header {
   width: 100%;
@@ -321,9 +401,18 @@ body {
 .balance__logOut:active {
   background-color: hsl(28, 100%, 50%);
 }
+.balance__content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 .balance__text {
   font-size: 24px;
   font-weight: 700;
+}
+.balance__footer {
+  position: absolute;
+  bottom: 0;
 }
 .balance__back {
   background-color: rgb(0, 42, 141);
@@ -338,9 +427,11 @@ body {
 }
 
 .deposit {
-  display: grid;
-  place-items: center;
-  gap: 50px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 100px;
+  position: relative;
 }
 .deposit__header {
   width: 100%;
@@ -364,9 +455,23 @@ body {
 .deposit__logOut:active {
   background-color: hsl(28, 100%, 50%);
 }
+.deposit__content {
+  display: grid;
+  gap: 40px;
+}
 .deposit-form {
   display: grid;
-  gap: 10px;
+  margin: 0 auto;
+  gap: 20px;
+}
+.deposit-form__field {
+  background-color: rgb(0, 42, 141);
+  padding: 5px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 .deposit-form__prefix {
   color: hsl(28, 100%, 50%);
@@ -375,10 +480,9 @@ body {
 }
 .deposit-form__input {
   background-color: rgb(0, 42, 141);
-  max-width: 80px;
+  width: 100%;
   padding: 10px 5px;
-  border: 2px solid hsl(0, 0%, 100%);
-  border-radius: 8px;
+  border: none;
   font-weight: 700;
   color: hsl(0, 0%, 100%);
 }
@@ -394,12 +498,17 @@ body {
   background-color: hsl(28, 100%, 50%);
 }
 .deposit-result__fail, .deposit-result__success {
-  display: grid;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   gap: 10px;
-  text-align: center;
 }
 .deposit-result__fail--hidden, .deposit-result__success--hidden {
   display: none;
+}
+.deposit__footer {
+  position: absolute;
+  bottom: 0;
 }
 .deposit__back {
   background-color: rgb(0, 42, 141);
@@ -414,9 +523,11 @@ body {
 }
 
 .withdraw {
-  display: grid;
-  place-items: center;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
   gap: 50px;
+  position: relative;
 }
 .withdraw__header {
   width: 100%;
@@ -440,16 +551,28 @@ body {
 .withdraw__logOut:active {
   background-color: hsl(28, 100%, 50%);
 }
+.withdraw__content {
+  display: grid;
+  gap: 40px;
+}
 .withdraw__options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 100px;
 }
 .withdraw__form {
-  padding: 0 30px;
+  margin: 0 auto;
   display: grid;
-  place-items: center;
   gap: 20px;
+}
+.withdraw__form-field {
+  background-color: rgb(0, 42, 141);
+  padding: 5px 10px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 .withdraw__form-prefix {
   color: hsl(28, 100%, 50%);
@@ -458,10 +581,9 @@ body {
 }
 .withdraw__form-input {
   background-color: rgb(0, 42, 141);
-  max-width: 80px;
+  width: 100%;
   padding: 10px 5px;
-  border: 2px solid hsl(0, 0%, 100%);
-  border-radius: 8px;
+  border: none;
   font-weight: 700;
   color: hsl(0, 0%, 100%);
 }
@@ -477,9 +599,9 @@ body {
   background-color: hsl(28, 100%, 50%);
 }
 .withdraw__deck {
+  margin: 0 auto;
   display: grid;
   gap: 20px;
-  text-align: center;
 }
 .withdraw__deck-list {
   display: grid;
@@ -501,12 +623,17 @@ body {
   background-color: hsl(28, 100%, 50%);
 }
 .withdraw-result__error, .withdraw-result__success {
-  display: grid;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   gap: 10px;
-  text-align: center;
 }
 .withdraw-result__error--hidden, .withdraw-result__success--hidden {
   display: none;
+}
+.withdraw__footer {
+  position: absolute;
+  bottom: 0;
 }
 .withdraw__back {
   background-color: rgb(0, 42, 141);

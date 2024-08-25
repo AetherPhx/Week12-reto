@@ -1,9 +1,13 @@
 @use "../../theme/" as theme;
 
 .deposit {
-	display: grid;
-	place-items: center;
-	gap: 50px;
+	height: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 100px;
+
+	position: relative;
 
 	// Header
 	&__header {
@@ -30,10 +34,28 @@
 		}
 	}
 
+	// Deposit Amount
+	&__content {
+		display: grid;
+		gap: 40px;
+	}
+
 	// Form
 	&-form {
 		display: grid;
-		gap: 10px;
+		margin: 0 auto;
+		gap: 20px;
+
+		&__field {
+			background-color: theme.$main;
+			padding: 5px 10px;
+			border: 2px solid theme.$white;
+			border-radius: 8px;
+
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+		}
 		&__prefix {
 			color: theme.$acc;
 			font-size: theme.$fs-xl;
@@ -41,10 +63,9 @@
 		}
 		&__input {
 			background-color: theme.$main;
-			max-width: 80px;
+			width: 100%;
 			padding: 10px 5px;
-			border: 2px solid theme.$white;
-			border-radius: 8px;
+			border: none;
 
 			font-weight: theme.$fw-bold;
 			color: theme.$white;
@@ -66,9 +87,10 @@
 	// Result
 	&-result__fail,
 	&-result__success {
-		display: grid;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
 		gap: 10px;
-		text-align: center;
 
 		&--hidden {
 			display: none;
@@ -76,6 +98,10 @@
 	}
 
 	// Footer
+	&__footer {
+		position: absolute;
+		bottom: 0;
+	}
 	&__back {
 		background-color: theme.$main;
 		padding: 8px 10px;

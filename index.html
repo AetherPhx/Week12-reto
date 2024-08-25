@@ -46,7 +46,7 @@
 
 					<div class="auth__content">
 						<!-- Auth Process -->
-						<form class="auth__form" action="" id="login">
+						<form class="auth__form" action="" id="auth">
 							<input
 								class="auth__input"
 								type="password"
@@ -56,7 +56,7 @@
 								placeholder="Ingresa tu DNI"
 								required
 							/>
-							<input
+							<!-- <input
 								class="auth__input"
 								type="password"
 								id="auth-pin"
@@ -64,7 +64,7 @@
 								maxlength="4"
 								placeholder="Ingresa tu PIN"
 								required
-							/>
+							/> -->
 							<button class="auth__submit" type="submit">Ingresar</button>
 						</form>
 
@@ -76,6 +76,52 @@
 							</p>
 						</div>
 					</div>
+				</section>
+			</div>
+
+			<!-- Confirm Operation -->
+			<div id="view-confirm" class="atm-app__view">
+				<section class="confirm">
+					<header class="confirm__header">
+						<!-- Instructions -->
+						<div class="confirm__guide">
+							<h2 class="confirm__title">Ingresa tu clave</h2>
+							<span class="confirm__subtitle">para confirmar la operación</span>
+						</div>
+
+						<!-- LogOut -->
+						<button class="confirm__logOut">
+							<i class="fa-solid fa-right-from-bracket"></i>
+							Salir
+						</button>
+					</header>
+
+					<div class="confirm__content">
+						<form class="confirm__form" action="" id="confirm">
+							<input
+								class="confirm__input"
+								type="password"
+								id="pin-confirm"
+								name="pin-confirm"
+								maxlength="4"
+								placeholder="Ingresa tu PIN"
+								required
+							/>
+							<button class="confirm__submit" type="submit">Confirmar</button>
+						</form>
+
+						<div class="confirm__error">
+							<i class="fa-solid fa-circle-exclamation"></i>
+							<p class="confirm__error-message">La clave es incorrecta.</p>
+						</div>
+					</div>
+
+					<footer class="confirm__footer">
+						<button class="confirm__back">
+							<i class="fa-solid fa-circle-left"></i>
+							Cancelar y Regresar
+						</button>
+					</footer>
 				</section>
 			</div>
 
@@ -164,7 +210,9 @@
 						</button>
 					</header>
 
-					<p class="balance__text">Tu saldo es de S/. 0</p>
+					<div class="balance__content">
+						<p class="balance__text">Tu saldo es de S/. 0</p>
+					</div>
 
 					<footer class="balance__footer">
 						<button class="balance__back">
@@ -194,49 +242,54 @@
 						</button>
 					</header>
 
-					<!-- Deposit Form -->
-					<form class="deposit-form" action="" id="deposit">
-						<div class="deposit-form__field">
-							<span class="deposit-form__prefix">S/ </span>
-							<input
-								class="deposit-form__input"
-								id="deposit-amount"
-								name="deposit-amount"
-								type="number"
-								placeholder="0"
-								min="0"
-								max="9999"
-								required
-							/>
-						</div>
+					<div class="deposit__content">
+						<!-- Deposit Form -->
+						<form class="deposit-form" action="" id="deposit">
+							<h3 class="withdraw__form-title">Ingresa el monto</h3>
 
-						<button class="deposit-form__submit" type="submit">
-							Depositar
-						</button>
-					</form>
+							<div class="deposit-form__field">
+								<span class="deposit-form__prefix">S/ </span>
+								<input
+									class="deposit-form__input"
+									id="deposit-amount"
+									name="deposit-amount"
+									type="number"
+									placeholder="0"
+									min="0"
+									max="9999"
+									required
+								/>
+							</div>
 
-					<!-- Result -->
-					<div class="deposit-result">
-						<!-- Fail -->
-						<div class="deposit-result__fail">
-							<h3 class="deposit-result__title">Deposito Fallido</h3>
-							<p class="deposit-result__fail-mssg">Ingresa un monto valido</p>
-						</div>
+							<button class="deposit-form__submit" type="submit">
+								Depositar
+							</button>
+						</form>
 
-						<!-- Success -->
-						<div class="deposit-result__success">
-							<h3 class="deposit-result__title">Deposito exitoso</h3>
-							<div class="deposit-result-details">
-								<p class="deposit-result__amount">
-									El monto ingresado fue de S/. 0
-								</p>
-								<p class="deposit-result__new-balance">
-									Tu nuevo saldo es de S/. 0
-								</p>
+						<!-- Result -->
+						<div class="deposit-result">
+							<!-- Fail -->
+							<div class="deposit-result__fail">
+								<h3 class="deposit-result__title">Deposito Fallido</h3>
+								<p class="deposit-result__fail-mssg">Ingresa un monto valido</p>
+							</div>
+
+							<!-- Success -->
+							<div class="deposit-result__success">
+								<h3 class="deposit-result__title">Deposito exitoso</h3>
+								<div class="deposit-result-details">
+									<p class="deposit-result__amount">
+										El monto ingresado fue de S/. 0
+									</p>
+									<p class="deposit-result__new-balance">
+										Tu nuevo saldo es de S/. 0
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 
+					<!-- Footer -->
 					<footer class="deposit__footer">
 						<button class="deposit__back">
 							<i class="fa-solid fa-circle-left"></i>
@@ -265,65 +318,73 @@
 						</button>
 					</header>
 
-					<!-- Withdraw Options -->
-					<div class="withdraw__options">
-						<!-- Form -->
-						<form class="withdraw__form">
-							<h3 class="withdraw__form-title">Ingresa el monto</h3>
-							<div class="withdrawn__form-field">
-								<span class="withdraw__form-prefix">S/ </span>
-								<!-- Prefix -->
-								<input
-									class="withdraw__form-input"
-									id="withdraw-amount"
-									name="withdraw-amount"
-									type="number"
-									placeholder="0"
-									min="0"
-									max="2000"
-									required
-								/>
-							</div>
+					<div class="withdraw__content">
+						<!-- Withdraw Options -->
+						<div class="withdraw__options">
+							<!-- Form -->
+							<form class="withdraw__form">
+								<h3 class="withdraw__form-title">Ingresa el monto</h3>
+								<div class="withdraw__form-field">
+									<span class="withdraw__form-prefix">S/ </span>
+									<!-- Prefix -->
+									<input
+										class="withdraw__form-input"
+										id="withdraw-amount"
+										name="withdraw-amount"
+										type="number"
+										placeholder="0"
+										min="0"
+										max="2000"
+										required
+									/>
+								</div>
 
-							<button class="withdraw__form-submit" type="submit">
-								Retirar
-							</button>
-						</form>
+								<button class="withdraw__form-submit" type="submit">
+									Retirar
+								</button>
+							</form>
 
-						<!-- Cards -->
-						<div class="withdraw__deck">
-							<h3 class="withdraw__deck-title">Selecciona el monto</h3>
-							<div class="withdraw__deck-list">
-								<span id="withdraw-20" class="withdraw__deck-item">S/ 20</span>
-								<span id="withdraw-50" class="withdraw__deck-item">S/ 50</span>
-								<span id="withdraw-100" class="withdraw__deck-item"
-									>S/ 100</span
-								>
-								<span id="withdraw-150" class="withdraw__deck-item"
-									>S/ 150</span
-								>
+							<!-- Cards -->
+							<div class="withdraw__deck">
+								<h3 class="withdraw__deck-title">Selecciona el monto</h3>
+								<div class="withdraw__deck-list">
+									<span id="withdraw-20" class="withdraw__deck-item"
+										>S/ 20</span
+									>
+									<span id="withdraw-50" class="withdraw__deck-item"
+										>S/ 50</span
+									>
+									<span id="withdraw-100" class="withdraw__deck-item"
+										>S/ 100</span
+									>
+									<span id="withdraw-150" class="withdraw__deck-item"
+										>S/ 150</span
+									>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<!-- Result -->
-					<div class="withdraw-result">
-						<!-- Error -->
-						<div class="withdraw-result__error">
-							<h3 class="withdraw-result__title">Retiro Fallido</h3>
-							<span class="withdraw-result__mssg">Ingresa un monto valido</span>
-						</div>
+						<!-- Result -->
+						<div class="withdraw-result">
+							<!-- Error -->
+							<div class="withdraw-result__error">
+								<h3 class="withdraw-result__title">Retiro Fallido</h3>
+								<span class="withdraw-result__mssg"
+									>Ingresa un monto valido</span
+								>
+							</div>
 
-						<!-- Success -->
-						<div class="withdraw-result__success">
-							<h3 class="withdraw-result__title">Retiro exitoso</h3>
-							<div class="withdraw-result__details">
-								<p class="withdraw-result__amount">
-									El monto retirado fue de S/. 0
-								</p>
-								<p class="withdraw-result__new-balance">
-									Tu nuevo saldo es de S/. 0
-								</p>
+							<!-- Success -->
+							<div class="withdraw-result__success">
+								<h3 class="withdraw-result__title">Retiro exitoso</h3>
+								<div class="withdraw-result__details">
+									<p class="withdraw-result__amount">
+										El monto retirado fue de S/. 0
+									</p>
+									<p class="withdraw-result__new-balance">
+										Tu nuevo saldo es de S/. 0
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>

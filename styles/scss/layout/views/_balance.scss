@@ -1,9 +1,13 @@
 @use "../../theme/" as theme;
 
 .balance {
-	display: grid;
-	place-items: center;
+	height: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
 	gap: 100px;
+
+	position: relative;
 
 	// Header
 	&__header {
@@ -30,13 +34,22 @@
 		}
 	}
 
-	// Balance
+	// Show Balance
+	&__content {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+	}
 	&__text {
 		font-size: theme.$fs-xl;
 		font-weight: theme.$fw-bold;
 	}
 
 	// Footer
+	&__footer {
+		position: absolute;
+		bottom: 0;
+	}
 	&__back {
 		background-color: theme.$main;
 		padding: 8px 10px;

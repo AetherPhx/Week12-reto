@@ -1,14 +1,13 @@
 @use "../../theme/" as theme;
 
-.auth {
+.confirm {
 	height: 100%;
 
-	display: grid;
-	grid-template-rows: auto 1fr auto;
-
-	// display: flex;
-	// flex-flow: column nowrap;
+	display: flex;
+	flex-flow: column nowrap;
 	gap: 100px;
+
+	position: relative;
 
 	// Header
 	&__header {
@@ -22,7 +21,7 @@
 		display: grid;
 		gap: 10px;
 	}
-	&__exit {
+	&__logOut {
 		background-color: theme.$main;
 		padding: 8px 10px;
 		border: 2px solid theme.$white;
@@ -35,7 +34,7 @@
 		}
 	}
 
-	// Auth Process
+	// Confirm Process
 	&__form {
 		display: grid;
 		place-items: center;
@@ -43,7 +42,7 @@
 	}
 	&__input {
 		background-color: theme.$main;
-		max-width: 120px;
+		// width: 70px;
 		padding: 10px 15px;
 		border: 2px solid theme.$white;
 		border-radius: 10px;
@@ -58,7 +57,7 @@
 		cursor: pointer;
 	}
 
-	// Auth Error
+	// Confirm Error
 	&__error {
 		margin-top: 20px;
 
@@ -71,5 +70,22 @@
 	}
 	&__error--hidden {
 		display: none;
+	}
+
+	&__footer {
+		position: absolute;
+		bottom: 0;
+	}
+	&__back {
+		background-color: theme.$main;
+		padding: 8px 10px;
+		border: 2px solid theme.$white;
+		border-radius: 8px;
+		color: theme.$white;
+		cursor: pointer;
+
+		&:active {
+			background-color: theme.$acc;
+		}
 	}
 }
