@@ -1,7 +1,7 @@
 // Variables Globales
 const viewsList = [];
 const usersList = [
-	{ dni: "44788834", pin: "1234", name: "Mali", balance: 200.0 },
+	{ dni: "12345678", pin: "1234", name: "Luis", balance: 200.0 },
 	{ dni: "10247439", pin: "5678", name: "Gera", balance: 150.0 },
 	{ dni: "98005362", pin: "9102", name: "Sabi", balance: 60.0 },
 ];
